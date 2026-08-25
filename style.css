@@ -1,0 +1,500 @@
+/* =========================================
+   1. Reset e Variabili (Con dislivello sezioni)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --verde-bf: #1e5c33; 
+    --verde-chiaro: #4CAF50; 
+    
+    --sfondo-principale: #e3ebd8; 
+    --sfondo-sezione-alternativa: #ffffff; 
+    
+    --testo: #333333;
+    --bianco: #ffffff;
+    --card-bg: #ffffff; 
+    --footer-bg: #11331c;
+    --transizione-colore: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+    --sfondo-principale: #121212; 
+    --sfondo-sezione-alternativa: #1a1a1a;
+    --testo: #e0e0e0;
+    --card-bg: #222222;
+    --verde-bf: #2e7d32; 
+    --footer-bg: #0a0a0a;
+}
+
+body {
+    background-color: var(--sfondo-principale);
+    color: var(--testo);
+    line-height: 1.6;
+    transition: var(--transizione-colore);
+}
+
+/* =========================================
+            2. Header Trasparente 
+   ========================================= */
+
+header {
+    background-color: rgba(18, 56, 31, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.4s ease;
+}
+
+header.scrolled {
+    background-color: rgba(30, 92, 51, 0.92);
+    padding: 10px 5%;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.logo h1 { 
+    font-size: 1.5rem; 
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    line-height: 1.1;
+    transition: transform 0.3s ease;
+}
+
+.logo h1:hover {
+    transform: scale(1.02);
+}
+
+.logo-sub {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a5d6a7;
+    font-weight: 500;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--verde-chiaro);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover { color: #a5d6a7; }
+
+.btn-eco {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-eco:hover {
+    background: #ffffff;
+    color: var(--verde-bf);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   3. Sezione Hero (Video Background Locale)
+   ========================================= */
+
+.video-hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 0; 
+    border-bottom: 4px solid var(--verde-chiaro);
+}
+
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 50, 20, 0.5);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.hero-content h2 {
+    font-size: 2.8rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #f0f0f0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* =========================================
+      4. Sezione Azioni (Sfondo Principale)
+   ========================================= */
+
+.azioni { 
+    padding: 60px 5%; 
+    text-align: center; 
+    background-color: var(--sfondo-principale);
+    transition: var(--transizione-colore);
+}
+.azioni h2 { font-size: 2.2rem; color: var(--verde-bf); margin-bottom: 40px; }
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, var(--transizione-colore);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.card h3 { color: var(--verde-bf); margin-bottom: 15px; font-size: 1.3rem; }
+
+/* =========================================
+   5. Dashboard KPI ESG (dislivello con Sfondo Alternativo)
+   ========================================= */
+
+.dashboard-section {
+    padding: 60px 5%;
+    text-align: center;
+    background-color: var(--sfondo-sezione-alternativa); 
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    transition: var(--transizione-colore);
+}
+
+.dashboard-section h2 {
+    font-size: 2.2rem;
+    color: var(--verde-bf);
+    margin-bottom: 10px;
+}
+
+.dashboard-section p {
+    font-size: 1.1rem;
+    color: var(--testo);
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.kpi-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.kpi-card {
+    background: var(--sfondo-principale);
+    border: 2px solid var(--verde-chiaro);
+    padding: 30px 20px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, var(--transizione-colore);
+}
+
+.kpi-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.kpi-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--verde-chiaro);
+    display: inline-block;
+}
+
+.kpi-unit {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--verde-chiaro);
+    margin-left: 2px;
+}
+
+.kpi-card h4 {
+    font-size: 1.3rem;
+    color: var(--verde-bf);
+    margin: 15px 0 10px 0;
+}
+
+.kpi-card p {
+    font-size: 0.95rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* =========================================
+   6. Sezione Carosello 3D con Frecce 
+   ========================================= */
+.scrolling-section {
+    padding: 60px 0 80px 0;
+    text-align: center;
+    background-color: var(--sfondo-principale);
+    transition: var(--transizione-colore);
+}
+
+.scrolling-section h2 {
+    font-size: 2.2rem;
+    color: var(--verde-bf);
+    margin-bottom: 10px;
+}
+
+.scrolling-section p {
+    font-size: 1.1rem;
+    color: var(--testo);
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.carousel-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.scroll-carousel {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 30px 10px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    perspective: 1000px;
+}
+
+.scroll-carousel::-webkit-scrollbar {
+    display: none;
+}
+.scroll-carousel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrolling-card {
+    flex: 0 0 320px;
+    scroll-snap-align: center;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    padding: 35px 25px;
+    border-radius: 18px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    position: relative;
+    transform: rotateY(3deg) scale(0.96);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease, var(--transizione-colore);
+}
+
+.scrolling-card:hover {
+    transform: rotateY(0deg) scale(1.02) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 50, 20, 0.18);
+    border-color: var(--verde-chiaro);
+}
+
+.card-tag {
+    display: inline-block;
+    background-color: rgba(76, 175, 80, 0.15);
+    color: var(--verde-chiaro);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.scrolling-card h3 {
+    color: var(--verde-bf);
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+}
+
+.scrolling-card p {
+    font-size: 0.95rem;
+    color: var(--testo);
+    margin: 0;
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--verde-bf);
+    color: #ffffff;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background-color: var(--verde-chiaro);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.prev-btn { left: -5px; }
+.next-btn { right: -5px; }
+
+/* =========================================
+           7. Sezione Download e Footer
+   ========================================= */
+
+.download {
+    background-color: var(--verde-bf);
+    color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+    transition: var(--transizione-colore);
+}
+
+.download h2 { font-size: 2.2rem; margin-bottom: 15px; }
+.download p { margin-bottom: 30px; font-size: 1.1rem; }
+
+.btn-download {
+    display: inline-block;
+    background-color: var(--verde-chiaro);
+    color: #ffffff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-download:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    transition: var(--transizione-colore);
+}
+
+/* =========================================
+      8. Animazioni JS (Scroll Reveal)
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.5s; }

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Sostenibilità | Bonifiche Ferraresi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- INTESTAZIONE  -->
+
+    <header id="main-header">
+        <div class="logo">
+            <h1>Bonifiche Ferraresi</h1>
+            <span class="logo-sub">Gruppo S.p.A.</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#chi-siamo" data-i18n="nav-chi-siamo">Chi Siamo</a></li>
+                <li><a href="#azioni" data-i18n="nav-azioni">Le nostre azioni</a></li>
+                <li><a href="#dashboard" data-i18n="nav-dashboard">Dashboard ESG</a></li>
+                <li><a href="#approfondimenti" data-i18n="nav-focus">Focus & Innovazione</a></li>
+                <li><a href="#download" data-i18n="nav-download">Area Download</a></li>
+                <li class="nav-buttons">
+
+                    <!-- Bandierina interattiva per il cambio lingua -->
+                    <button id="lang-toggle" class="btn-eco" aria-label="Cambia lingua">🌐 EN</button>
+                    <button id="eco-toggle" class="btn-eco" aria-label="Attiva la modalità scura">🌙 Eco Mode</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION CON VIDEO BACKGROUND -->
+
+    <section id="chi-siamo" class="video-hero">
+        
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="VideoBackground.mp4" type="video/mp4">
+            Il tuo browser non supporta i video HTML5.
+        </video>
+        
+        <div class="video-overlay"></div>
+        
+        <div class="hero-content reveal">
+            <h2 data-i18n="hero-title">L'Agricoltura del Futuro è Sostenibile</h2>
+            <p data-i18n="hero-text">Innovazione, tecnologia e rispetto per la terra: scopri l'impegno di Bonifiche Ferraresi per la tutela del nostro ecosistema.</p>
+            <!-- Aggiunto attributo data-i18n anche al bottone video -->
+            <button id="video-toggle" class="btn-eco" data-i18n="btn-pause-video" aria-label="Metti in pausa o riproduci il video di sfondo" style="margin-top: 20px;">⏸ Pausa Video</button>
+        </div>
+    </section>
+
+    <!-- SEZIONE AZIONI -->
+
+    <section id="azioni" class="azioni">
+        <h2 class="reveal" data-i18n="pillars-title">I nostri pilastri ambientali</h2>
+        
+        <div class="card-container">
+            <div class="card reveal delay-1">
+                <h3 data-i18n="card1-title">🌍 Agricoltura di Precisione</h3>
+                <p data-i18n="card1-text">Utilizziamo droni e mappatura satellitare (Smart Farming) per ottimizzare le risorse, riducendo gli sprechi e l'impatto chimico sul suolo.</p>
+            </div>
+            
+            <div class="card reveal delay-2">
+                <h3 data-i18n="card2-title">💧 Risparmio Idrico</h3>
+                <p data-i18n="card2-text">Attraverso reti di sub-irrigazione e sensori IoT, garantiamo l'efficienza idrica, minimizzando l'evaporazione e tutelando le falde acquifere.</p>
+            </div>
+            
+            <div class="card reveal delay-3">
+                <h3 data-i18n="card3-title">🌱 Carbon Footprint</h3>
+                <p data-i18n="card3-text">Adottiamo pratiche di minima lavorazione del terreno per favorire il sequestro del carbonio e ridurre le emissioni dei mezzi agricoli.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD KPI ESG -->
+
+    <section id="dashboard" class="dashboard-section reveal">
+        <h2 data-i18n="kpi-section-title">I Nostri Numeri per l'Ambiente</h2>
+        <p data-i18n="kpi-section-text">I dati ufficiali estratti dalle ultime rendicontazioni di sostenibilità del Gruppo.</p>
+        
+        <div class="kpi-container">
+            <div class="kpi-card reveal delay-1">
+                <span class="kpi-number" data-target="90000">0</span>
+                <span class="kpi-unit" data-i18n="unit-hectares">Ettari</span>
+                <h4 data-i18n="kpi1-title">Smart Farming</h4>
+                <p data-i18n="kpi1-text">Superficie gestita con mappatura e agricoltura di precisione.</p>
+            </div>
+
+            <div class="kpi-card reveal delay-2">
+                <span class="kpi-number" data-target="40">0</span>
+                <span class="kpi-unit">%</span>
+                <h4 data-i18n="kpi2-title">Risparmio Chimico</h4>
+                <p data-i18n="kpi2-text">Riduzione di fertilizzanti e concimi grazie ai modelli DSS.</p>
+            </div>
+
+            <div class="kpi-card reveal delay-3">
+                <span class="kpi-number" data-target="35">0</span>
+                <span class="kpi-unit">%</span>
+                <h4 data-i18n="kpi3-title">Biodiversità</h4>
+                <p data-i18n="kpi3-text">Terreni aziendali dedicati ad aree naturali e cover crops.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE CAROSELLO 3D CON FRECCE -->
+
+    <section id="approfondimenti" class="scrolling-section reveal">
+        <h2 data-i18n="carousel-title">Focus Tecnologici ed Economia Circolare</h2>
+        <p data-i18n="carousel-text">Esplora le soluzioni avanzate applicate lungo l'intera filiera agro-industriale.</p>
+        
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Scorri a sinistra">❮</button>
+            
+            <div class="scroll-carousel" id="cardCarousel">
+                
+                <div class="scrolling-card">
+                    <div class="card-tag" data-i18n="tag-inn">Innovazione</div>
+                    <h3 data-i18n="scard1-title">Droni & Satelliti</h3>
+                    <p data-i18n="scard1-text">Mappatura multispettrale in tempo reale per monitorare lo stress idrico e lo stato di salute delle colture estensive.</p>
+                </div>
+
+                <div class="scrolling-card">
+                    <div class="card-tag" data-i18n="tag-res">Risorse</div>
+                    <h3 data-i18n="scard2-title">Sub-irrigazione IoT</h3>
+                    <p data-i18n="scard2-text">Sistemi interrati ad altissima efficienza che azzerano l'evaporazione e proteggono le falde acquifere sotterranee.</p>
+                </div>
+
+                <div class="scrolling-card">
+                    <div class="card-tag" data-i18n="tag-circ">Circolarità</div>
+                    <h3 data-i18n="scard3-title">Biometano da Scarti</h3>
+                    <p data-i18n="scard3-text">Valorizzazione dei sottoprodotti zootecnici e agricoli per la produzione di energia pulita e 100% rinnovabile.</p>
+                </div>
+
+                <div class="scrolling-card">
+                    <div class="card-tag" data-i18n="tag-agro">Agroecologia</div>
+                    <h3 data-i18n="scard4-title">Cover Crops</h3>
+                    <p data-i18n="scard4-text">Tecniche colturali tradizionali risoperte per incrementare la sostanza organica e il sequestro naturale del carbonio nel suolo.</p>
+                </div>
+
+                <div class="scrolling-card">
+                    <div class="card-tag" data-i18n="tag-cert">Certificazioni</div>
+                    <h3 data-i18n="scard5-title">Standard EPD & ISO</h3>
+                    <p data-i18n="scard5-text">Trasparenza totale certificata da enti terzi indipendenti sull'intero ciclo di vita (LCA) dei prodotti a marchio.</p>
+                </div>
+
+            </div>
+
+            <button class="carousel-btn next-btn" aria-label="Scorri a destra">❯</button>
+        </div>
+    </section>
+
+    <!-- SEZIONE DOWNLOAD ARCHIVIO ESG -->
+
+    <section id="download" class="download reveal">
+        <h2 data-i18n="download-title">Archivio Bilanci e Rendicontazioni ESG</h2>
+        <p data-i18n="download-text">Consulta e scarica la documentazione di sostenibilità e i report consolidati storici del Gruppo Bonifiche Ferraresi.</p>
+        
+        <div class="card-container" style="margin-top: 30px;">
+
+            <!-- Report 2025 -->
+             
+            <div class="card" style="width: 280px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);">
+                <h3 style="color: #fff;">📊 Report 2025</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 15px; color: #f0f0f0;" data-i18n="rep2025-desc">Ultima rendicontazione integrata (DNF).</p>
+                <a href="ReportSostenibilitaBF2025.pdf" download class="btn-download" style="padding: 10px 20px; font-size: 0.9rem;" data-i18n="btn-dl">⬇ Scarica PDF</a>
+            </div>
+
+            <!-- Report 2024 -->
+
+            <div class="card" style="width: 280px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);">
+                <h3 style="color: #fff;">📊 Report 2024</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 15px; color: #f0f0f0;" data-i18n="rep2024-desc">Rendicontazione consolidata precedente.</p>
+                <a href="ReportSostenibilitaBF2024.pdf" download class="btn-download" style="padding: 10px 20px; font-size: 0.9rem;" data-i18n="btn-dl">⬇ Scarica PDF</a>
+            </div>
+
+            <!-- Report 2023 -->
+
+            <div class="card" style="width: 280px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);">
+                <h3 style="color: #fff;">📊 Report 2023</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 15px; color: #f0f0f0;" data-i18n="rep2023-desc">Storico di conformità ESG.</p>
+                <a href="ReportSostenibilitaBF2023.pdf" download class="btn-download" style="padding: 10px 20px; font-size: 0.9rem;" data-i18n="btn-dl">⬇ Scarica PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Bonifiche Ferraresi S.p.A. - ProjectWork PEGASO</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; color: #888;" data-i18n="footer-sub">Sede Legale: Via Nazionale 5, Roma | Investor Relations & ESG Compliance</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
