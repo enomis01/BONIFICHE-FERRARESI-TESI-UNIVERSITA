@@ -1,5 +1,5 @@
 /* =========================================
-   1. Reset e Variabili (Con dislivello sezioni)
+   1. Reset e Variabili di Sistema
    ========================================= */
 * {
     margin: 0;
@@ -9,21 +9,24 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Attiva lo scorrimento fluido in tutto il sito */
-    scroll-padding-top: 85px; /* Evita che l'header copra i titoli dopo lo scroll */
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px; 
+    overflow-x: hidden; /* Previene lo scrolling orizzontale non desiderato */
 }
 
 :root {
+    /* Palette Colori Corporate */
     --verde-bf: #1e5c33; 
     --verde-chiaro: #4CAF50; 
     
+    /* Gestione Temi (Light/Dark Mode) */
     --sfondo-principale: #e3ebd8; 
     --sfondo-sezione-alternativa: #ffffff; 
-    
     --testo: #333333;
     --bianco: #ffffff;
     --card-bg: #ffffff; 
     --footer-bg: #11331c;
+    
     --transizione-colore: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -41,12 +44,13 @@ body {
     color: var(--testo);
     line-height: 1.6;
     transition: var(--transizione-colore);
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* =========================================
-            2. Header Trasparente 
+   2. Header Navigazionale e Sticky Menu
    ========================================= */
-
 header {
     background-color: rgba(18, 56, 31, 0.65);
     backdrop-filter: blur(12px);
@@ -111,6 +115,7 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
+/* Indicatore di hover sui link di navigazione */
 nav ul li a::after {
     content: '';
     position: absolute;
@@ -126,8 +131,11 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-nav ul li a:hover { color: #a5d6a7; }
+nav ul li a:hover { 
+    color: #a5d6a7; 
+}
 
+/* Componente Button UI */
 .btn-eco {
     background: transparent;
     border: 2px solid #ffffff;
@@ -148,9 +156,8 @@ nav ul li a:hover { color: #a5d6a7; }
 }
 
 /* =========================================
-   3. Sezione Hero (Video Background Locale)
+   3. Sezione Hero (Media Background)
    ========================================= */
-
 .video-hero {
     position: relative;
     overflow: hidden;
@@ -209,16 +216,20 @@ nav ul li a:hover { color: #a5d6a7; }
 }
 
 /* =========================================
-      4. Sezione Azioni (Sfondo Principale)
+   4. Sezione Content: Pilastri Ambientali
    ========================================= */
-
 .azioni { 
     padding: 60px 5%; 
     text-align: center; 
     background-color: var(--sfondo-principale);
     transition: var(--transizione-colore);
 }
-.azioni h2 { font-size: 2.2rem; color: var(--verde-bf); margin-bottom: 40px; }
+
+.azioni h2 { 
+    font-size: 2.2rem; 
+    color: var(--verde-bf); 
+    margin-bottom: 40px; 
+}
 
 .card-container {
     display: flex;
@@ -241,12 +252,15 @@ nav ul li a:hover { color: #a5d6a7; }
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-.card h3 { color: var(--verde-bf); margin-bottom: 15px; font-size: 1.3rem; }
+.card h3 { 
+    color: var(--verde-bf); 
+    margin-bottom: 15px; 
+    font-size: 1.3rem; 
+}
 
 /* =========================================
-   5. Dashboard KPI ESG (dislivello con Sfondo Alternativo)
+   5. Dashboard KPI ESG e Metriche
    ========================================= */
-
 .dashboard-section {
     padding: 60px 5%;
     text-align: center;
@@ -319,7 +333,7 @@ nav ul li a:hover { color: #a5d6a7; }
 }
 
 /* =========================================
-   6. Sezione Carosello 3D con Frecce 
+   6. UI Carosello 3D (Sezione Innovazione)
    ========================================= */
 .scrolling-section {
     padding: 60px 0 80px 0;
@@ -359,14 +373,12 @@ nav ul li a:hover { color: #a5d6a7; }
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     perspective: 1000px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .scroll-carousel::-webkit-scrollbar {
     display: none;
-}
-.scroll-carousel {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
 
 .scrolling-card {
@@ -416,6 +428,7 @@ nav ul li a:hover { color: #a5d6a7; }
     line-height: 1.5;
 }
 
+/* Controlli di navigazione del carosello */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -446,9 +459,8 @@ nav ul li a:hover { color: #a5d6a7; }
 .next-btn { right: -5px; }
 
 /* =========================================
-            7. Sezione Download e Footer
+   7. Area Download Rendicontazione ESG e Footer
    ========================================= */
-
 .download {
     background-color: var(--verde-bf);
     color: #ffffff;
@@ -457,8 +469,15 @@ nav ul li a:hover { color: #a5d6a7; }
     transition: var(--transizione-colore);
 }
 
-.download h2 { font-size: 2.2rem; margin-bottom: 15px; }
-.download p { margin-bottom: 30px; font-size: 1.1rem; }
+.download h2 { 
+    font-size: 2.2rem; 
+    margin-bottom: 15px; 
+}
+
+.download p { 
+    margin-bottom: 30px; 
+    font-size: 1.1rem; 
+}
 
 .btn-download {
     display: inline-block;
@@ -487,7 +506,7 @@ footer {
 }
 
 /* =========================================
-      8. Animazioni JS (Scroll Reveal)
+   8. Classi per Animazioni JS (Intersection Observer)
    ========================================= */
 .reveal {
     opacity: 0;
@@ -504,9 +523,8 @@ footer {
 .delay-2 { transition-delay: 0.3s; }
 .delay-3 { transition-delay: 0.5s; }
 
-
 /* =========================================
-   9. RESPONSIVE & MOBILE (Hamburger Menu)
+   9. Media Queries: Layout Responsive e Off-Canvas Menu
    ========================================= */
 .hamburger {
     display: none;
@@ -525,30 +543,30 @@ footer {
 }
 
 @media (max-width: 850px) {
-    /* Mostra l'hamburger */
+    /* Attivazione controllo visivo menu mobile */
     .hamburger {
         display: flex;
     }
 
-    /* Sidebar a scomparsa per mobile */
+    /* Struttura menu off-canvas laterale (Right Panel) */
     #nav-menu {
         position: fixed;
         top: 0;
-        right: -100%; /* NASCOSTO A DESTRA */
+        right: -100%; 
         width: 260px;
         height: 100vh;
         background-color: var(--verde-bf);
-        box-shadow: -2px 0 15px rgba(0,0,0,0.6); /* OMBRA VERSO SINISTRA */
-        transition: right 0.4s ease; /* SCORRE DA DESTRA */
+        box-shadow: -2px 0 15px rgba(0,0,0,0.6); 
+        transition: right 0.4s ease; 
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        padding-top: 100px; /* Spazio per evitare l'header */
+        padding-top: 100px; 
         z-index: 999;
     }
 
     #nav-menu.active {
-        right: 0; /* ENTRA NELLO SCHERMO DA DESTRA */
+        right: 0; 
     }
 
     #nav-menu ul {
@@ -566,7 +584,7 @@ footer {
         margin-top: 20px;
     }
 
-    /* Animazione Hamburger in X */
+    /* Transizione animata stato menu aperto (Icona Close) */
     .hamburger.active .bar:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
@@ -577,7 +595,7 @@ footer {
         transform: translateY(-9px) rotate(-45deg);
     }
 
-    /* Piccoli aggiustamenti generali per mobile */
+    /* Adattamenti tipografici e dimensionamento viewport mobile */
     .hero-content h2 { font-size: 2.2rem; }
     .hero-content p { font-size: 1rem; }
     .kpi-number { font-size: 2.4rem; }
