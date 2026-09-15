@@ -130,7 +130,6 @@ const translations = {
 
 langBtn.addEventListener('click', () => {
     currentLang = currentLang === 'it' ? 'en' : 'it';
-    // Usa l'icona del mappamondo che non dà problemi di visualizzazione su Windows
     langBtn.textContent = currentLang === 'it' ? '🌐 EN' : '🌐 IT';
     langBtn.setAttribute('aria-label', currentLang === 'it' ? 'Change language to English' : 'Cambia lingua in Italiano');
 
@@ -272,5 +271,29 @@ if (carousel && prevBtn && nextBtn) {
 
     prevBtn.addEventListener('click', () => {
         carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+}
+
+/* ==========================================
+ 9. Logica Hamburger Menu & Sidebar Mobile
+ ==========================================*/
+
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
+const navLinks = document.querySelectorAll("#nav-menu ul li a");
+
+if (hamburger && navMenu) {
+    // 1. Apri/Chiudi sidebar al click sull'icona hamburger
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+
+    // 2. Chiudi la sidebar automaticamente quando clicchi su un link del menu
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        });
     });
 }
