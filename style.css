@@ -8,6 +8,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth; /* Attiva lo scorrimento fluido in tutto il sito */
+    scroll-padding-top: 85px; /* Evita che l'header copra i titoli dopo lo scroll */
+}
+
 :root {
     --verde-bf: #1e5c33; 
     --verde-chiaro: #4CAF50; 
@@ -441,7 +446,7 @@ nav ul li a:hover { color: #a5d6a7; }
 .next-btn { right: -5px; }
 
 /* =========================================
-           7. Sezione Download e Footer
+            7. Sezione Download e Footer
    ========================================= */
 
 .download {
@@ -498,3 +503,83 @@ footer {
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.3s; }
 .delay-3 { transition-delay: 0.5s; }
+
+
+/* =========================================
+   9. RESPONSIVE & MOBILE (Hamburger Menu)
+   ========================================= */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1000;
+}
+
+.hamburger .bar {
+    width: 28px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+@media (max-width: 850px) {
+    /* Mostra l'hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Sidebar a scomparsa per mobile */
+    #nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* NASCOSTO A DESTRA */
+        width: 260px;
+        height: 100vh;
+        background-color: var(--verde-bf);
+        box-shadow: -2px 0 15px rgba(0,0,0,0.6); /* OMBRA VERSO SINISTRA */
+        transition: right 0.4s ease; /* SCORRE DA DESTRA */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 100px; /* Spazio per evitare l'header */
+        z-index: 999;
+    }
+
+    #nav-menu.active {
+        right: 0; /* ENTRA NELLO SCHERMO DA DESTRA */
+    }
+
+    #nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    #nav-menu ul li a {
+        font-size: 1.1rem;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    /* Animazione Hamburger in X */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Piccoli aggiustamenti generali per mobile */
+    .hero-content h2 { font-size: 2.2rem; }
+    .hero-content p { font-size: 1rem; }
+    .kpi-number { font-size: 2.4rem; }
+    .carousel-wrapper { padding: 0 15px; }
+}
