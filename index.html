@@ -9,13 +9,21 @@
 <body>
 
     <!-- INTESTAZIONE  -->
-
     <header id="main-header">
         <div class="logo">
             <h1>Bonifiche Ferraresi</h1>
             <span class="logo-sub">Gruppo S.p.A.</span>
         </div>
-        <nav>
+        
+        <!-- Bottone Hamburger per Mobile (A destra) -->
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <!-- Menu di navigazione -->
+        <nav id="nav-menu">
             <ul>
                 <li><a href="#chi-siamo" data-i18n="nav-chi-siamo">Chi Siamo</a></li>
                 <li><a href="#azioni" data-i18n="nav-azioni">Le nostre azioni</a></li>
@@ -23,7 +31,6 @@
                 <li><a href="#approfondimenti" data-i18n="nav-focus">Focus & Innovazione</a></li>
                 <li><a href="#download" data-i18n="nav-download">Area Download</a></li>
                 <li class="nav-buttons">
-
                     <!-- Bandierina interattiva per il cambio lingua -->
                     <button id="lang-toggle" class="btn-eco" aria-label="Cambia lingua">🌐 EN</button>
                     <button id="eco-toggle" class="btn-eco" aria-label="Attiva la modalità scura">🌙 Eco Mode</button>
@@ -33,7 +40,6 @@
     </header>
 
     <!-- HERO SECTION CON VIDEO BACKGROUND -->
-
     <section id="chi-siamo" class="video-hero">
         
         <video autoplay muted loop playsinline id="bg-video">
@@ -46,13 +52,11 @@
         <div class="hero-content reveal">
             <h2 data-i18n="hero-title">L'Agricoltura del Futuro è Sostenibile</h2>
             <p data-i18n="hero-text">Innovazione, tecnologia e rispetto per la terra: scopri l'impegno di Bonifiche Ferraresi per la tutela del nostro ecosistema.</p>
-            <!-- Aggiunto attributo data-i18n anche al bottone video -->
             <button id="video-toggle" class="btn-eco" data-i18n="btn-pause-video" aria-label="Metti in pausa o riproduci il video di sfondo" style="margin-top: 20px;">⏸ Pausa Video</button>
         </div>
     </section>
 
     <!-- SEZIONE AZIONI -->
-
     <section id="azioni" class="azioni">
         <h2 class="reveal" data-i18n="pillars-title">I nostri pilastri ambientali</h2>
         
@@ -75,7 +79,6 @@
     </section>
 
     <!-- DASHBOARD KPI ESG -->
-
     <section id="dashboard" class="dashboard-section reveal">
         <h2 data-i18n="kpi-section-title">I Nostri Numeri per l'Ambiente</h2>
         <p data-i18n="kpi-section-text">I dati ufficiali estratti dalle ultime rendicontazioni di sostenibilità del Gruppo.</p>
@@ -105,7 +108,6 @@
     </section>
 
     <!-- SEZIONE CAROSELLO 3D CON FRECCE -->
-
     <section id="approfondimenti" class="scrolling-section reveal">
         <h2 data-i18n="carousel-title">Focus Tecnologici ed Economia Circolare</h2>
         <p data-i18n="carousel-text">Esplora le soluzioni avanzate applicate lungo l'intera filiera agro-industriale.</p>
@@ -152,15 +154,12 @@
     </section>
 
     <!-- SEZIONE DOWNLOAD ARCHIVIO ESG -->
-
     <section id="download" class="download reveal">
         <h2 data-i18n="download-title">Archivio Bilanci e Rendicontazioni ESG</h2>
         <p data-i18n="download-text">Consulta e scarica la documentazione di sostenibilità e i report consolidati storici del Gruppo Bonifiche Ferraresi.</p>
         
         <div class="card-container" style="margin-top: 30px;">
-
             <!-- Report 2025 -->
-             
             <div class="card" style="width: 280px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);">
                 <h3 style="color: #fff;">📊 Report 2025</h3>
                 <p style="font-size: 0.9rem; margin-bottom: 15px; color: #f0f0f0;" data-i18n="rep2025-desc">Ultima rendicontazione integrata (DNF).</p>
@@ -168,7 +167,6 @@
             </div>
 
             <!-- Report 2024 -->
-
             <div class="card" style="width: 280px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);">
                 <h3 style="color: #fff;">📊 Report 2024</h3>
                 <p style="font-size: 0.9rem; margin-bottom: 15px; color: #f0f0f0;" data-i18n="rep2024-desc">Rendicontazione consolidata precedente.</p>
@@ -176,7 +174,6 @@
             </div>
 
             <!-- Report 2023 -->
-
             <div class="card" style="width: 280px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);">
                 <h3 style="color: #fff;">📊 Report 2023</h3>
                 <p style="font-size: 0.9rem; margin-bottom: 15px; color: #f0f0f0;" data-i18n="rep2023-desc">Storico di conformità ESG.</p>
