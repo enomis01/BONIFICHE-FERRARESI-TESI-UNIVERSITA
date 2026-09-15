@@ -63,7 +63,7 @@ const translations = {
         "scard3-text": "Valorizzazione dei sottoprodotti zootecnici e agricoli per la produzione di energia pulita e 100% rinnovabile.",
         "tag-agro": "Agroecologia",
         "scard4-title": "Cover Crops",
-        "scard4-text": "Tecniche colturali tradizionali risoperte per incrementare la sostanza organica e il sequestro naturale del carbonio nel suolo.",
+        "scard4-text": "Tecniche colturali tradizionali riscoperte per incrementare la sostanza organica e il sequestro naturale del carbonio nel suolo.",
         "tag-cert": "Certificazioni",
         "scard5-title": "Standard EPD & ISO",
         "scard5-text": "Trasparenza totale certificata da enti terzi indipendenti sull'intero ciclo di vita (LCA) dei prodotti a marchio.",
@@ -109,7 +109,7 @@ const translations = {
         "tag-res": "Resources",
         "scard2-title": "IoT Sub-irrigation",
         "scard2-text": "High-efficiency underground systems that eliminate evaporation and protect underground aquifers.",
-        "tag-circ": "Circularity",
+        "tag-circ": "Circolarità",
         "scard3-title": "Biomethane from Waste",
         "scard3-text": "Valorization of livestock and agricultural by-products for clean, 100% renewable energy production.",
         "tag-agro": "Agroecology",
@@ -255,7 +255,7 @@ if (kpiSection) {
 }
 
 /* ==========================================
- 8. Logica Carosello 3D con Pulsanti di scorrimento
+ 8. Logica Carosello 3D con Pulsanti di scorrimento (Loop Continuo)
  ==========================================*/
 
 const carousel = document.getElementById('cardCarousel');
@@ -263,14 +263,36 @@ const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
 
 if (carousel && prevBtn && nextBtn) {
-    const scrollAmount = 350;
+    // Calcola dinamicamente lo spazio di scorrimento (larghezza card + gap)
+    const getScrollAmount = () => {
+        const card = carousel.querySelector('.scrolling-card');
+        return card ? card.offsetWidth + 30 : 350;
+    };
 
     nextBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        // Calcola il limite massimo di scorrimento del contenitore
+        const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+        
+        // Se siamo arrivati all'ultima card (con una piccola tolleranza di 10px)
+        if (carousel.scrollLeft >= maxScrollLeft - 10) {
+            // Riavvolgi fluidamente tornando alla prima card
+            carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            // Altrimenti scorri normalmente alla prossima
+            carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        }
     });
 
     prevBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        // Se siamo alla primissima card
+        if (carousel.scrollLeft <= 10) {
+            // Salta fluidamente all'ultima card
+            const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+            carousel.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+        } else {
+            // Altrimenti scorri normalmente indietro
+            carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        }
     });
 }
 
@@ -294,6 +316,30 @@ if (hamburger && navMenu) {
         link.addEventListener("click", () => {
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
+        });
+    });
+}
+
+/* ==========================================
+ 10. Bottone "Torna Su" (Back to top)
+ ==========================================*/
+const backToTopBtn = document.getElementById('back-to-top');
+
+if (backToTopBtn) {
+    // Mostra il bottone dopo aver fatto 300px di scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Cliccando il bottone, torna su in modo fluido
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
 }
