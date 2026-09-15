@@ -601,3 +601,49 @@ footer {
     .kpi-number { font-size: 2.4rem; }
     .carousel-wrapper { padding: 0 15px; }
 }
+
+/* =========================================
+   10. Bottone Torna Su (Back to Top)
+   ========================================= */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--verde-bf);
+    color: #ffffff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+/* Classe aggiunta da Javascript quando si scorre verso il basso */
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background-color: var(--verde-chiaro);
+    transform: translateY(-5px);
+}
+
+/* Piccoli aggiustamenti per mobile */
+@media (max-width: 850px) {
+    #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
